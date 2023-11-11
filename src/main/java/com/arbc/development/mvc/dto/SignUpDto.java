@@ -24,4 +24,7 @@ public class SignUpDto {
     @NotEmpty
     private char[] password;
 
+    @NotEmpty
+    private String role;
+
 }
