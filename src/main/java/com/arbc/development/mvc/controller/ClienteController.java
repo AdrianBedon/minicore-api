@@ -55,7 +55,7 @@ class ClienteController {
 
     @DeleteMapping("/client/{id}")
     public ResponseEntity<?> deleteCliente(@PathVariable Long id, @RequestBody String role) {
-        if (role.equals("ADMIN"))
+        if (role.toString().equals("ADMIN"))
         {
             log.info("Request to delete client: {}", id);
             clienteRepository.deleteById(id);
