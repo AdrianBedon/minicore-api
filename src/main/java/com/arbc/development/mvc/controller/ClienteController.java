@@ -1,5 +1,6 @@
 package com.arbc.development.mvc.controller;
 
+import com.arbc.development.mvc.dto.RoleDto;
 import com.arbc.development.mvc.model.Cliente;
 import com.arbc.development.mvc.model.ClienteRepository;
 import org.slf4j.Logger;
@@ -54,8 +55,8 @@ class ClienteController {
     }
 
     @DeleteMapping("/client/{id}")
-    public ResponseEntity<?> deleteCliente(@PathVariable Long id, @RequestBody String role) {
-        if (role.toString().equals("ADMIN"))
+    public ResponseEntity<?> deleteCliente(@PathVariable Long id, @RequestBody RoleDto role) {
+        if (role.getRole().equals("ADMIN"))
         {
             log.info("Request to delete client: {}", id);
             clienteRepository.deleteById(id);
