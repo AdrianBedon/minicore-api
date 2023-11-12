@@ -63,7 +63,7 @@ class ClienteController {
         }
         else
         {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         
     }
