@@ -63,6 +63,7 @@ class ClienteController {
         }
         else
         {
+            log.info("Request to delete client: {} but failed", id);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         
