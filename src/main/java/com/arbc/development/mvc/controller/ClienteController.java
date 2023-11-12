@@ -59,7 +59,12 @@ class ClienteController {
         {
             log.info("Request to delete client: {}", id);
             clienteRepository.deleteById(id);
+            return ResponseEntity.ok().build();
         }
-        return ResponseEntity.ok().build();
+        else
+        {
+            return ResponseEntity.badRequest().build();
+        }
+        
     }
 }
