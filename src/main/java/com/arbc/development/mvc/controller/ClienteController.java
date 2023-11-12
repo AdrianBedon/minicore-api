@@ -54,9 +54,12 @@ class ClienteController {
     }
 
     @DeleteMapping("/client/{id}")
-    public ResponseEntity<?> deleteCliente(@PathVariable Long id) {
-        log.info("Request to delete client: {}", id);
-        clienteRepository.deleteById(id);
+    public ResponseEntity<?> deleteCliente(@PathVariable Long id, @RequestBody String role) {
+        if (role == "ADMIN")
+        {
+            log.info("Request to delete client: {}", id);
+            clienteRepository.deleteById(id);
+        }
         return ResponseEntity.ok().build();
     }
 }
